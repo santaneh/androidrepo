@@ -18,24 +18,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView textfield = (TextView) findViewById(R.id.hello);
-        textfield.setText("Min app funkar");
-
         Button btncalc = (Button) findViewById(R.id.btn);
 
         btncalc.setOnClickListener(v -> btncalculate());
+    }
 
+    private void btncalculate(){
         ArrayList<Double> arraylistDouble = new ArrayList<>();
         arraylistDouble.add(1.0);
         arraylistDouble.add(2.0);
         arraylistDouble.add(3.0);
 
+       double median = statistic.calcMean(arraylistDouble);
+        String result = Double.toString(median);
+        TextView textfield = (TextView) findViewById(R.id.hello);
+        textfield.setText(result);
 
-    }
-
-    private void btncalculate()
-    {
-        statistic.calcMean(arraylistDouble);
     }
 
 }
